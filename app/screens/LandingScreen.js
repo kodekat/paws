@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import { LinearGradient } from 'expo';
 //screens
 import Login from './Login';
 import Register from './Register';
 import Profile from './Profile';
 import Feed from './Feed';
+
+import Logo from '../../assets/pawsLogo.png'
 
 export default class App extends React.Component {
     constructor(props){
@@ -30,26 +32,36 @@ export default class App extends React.Component {
         } else{
             //landing screen code
             return(
+                
                 <View style={{flex:1}}>
-                    < LinearGradient 
+                   
+                    <LinearGradient 
                     style={styles.mainContainer}
                     colors={['#1D2786','#6A65D8']}
                     start={{x: 0.0, y:0.0}}
                     end={{x:1.0, y:1.0}}
-                    />
-                    < View style={styles.buttonContainer}>
+                    >
+                    <Image
+                    source={Logo}
+                    width={100}
+                    height={200}/>
+                    <Text style={styles.textDisplay}> PAWS  </Text>
+                        
+                     </LinearGradient>
+                    <View style={styles.buttonContainer}>
                         <TouchableOpacity 
-                        style= {styles.button}
+                        style= {styles.buttonStyle}
                         onPress= {()=> this.setState({currentScreen: 'login'})}>
-                        <Text > Login </Text>
+                        <Text style={styles.textDisplay}> Login </Text>
                         </TouchableOpacity>
                         <TouchableOpacity 
-                        style= {styles.button}
+                        style= {styles.buttonStyle}
                         onPress= {()=> this.setState({currentScreen: 'register'})}>
-                        <Text > Register </Text>
+                        <Text style={styles.textDisplay}> Sign Up </Text>
                         </TouchableOpacity>
                     </View>    
-                </View>
+            </View>
+             
             );
         }  
 
@@ -64,18 +76,23 @@ export default class App extends React.Component {
   const styles = StyleSheet.create({
     mainContainer: {
       flex: 1,
-      backgroundColor: 'blue',
+      alignItems:'center',
+      justifyContent:'center'
       
     },
     buttonContainer:{
         height:80,
-        backgroundColor:'#FFCDCD',
+        backgroundColor:'rgba(255, 205, 205, 0.88)',
         flexDirection: 'row'
     },
-    button:{
+    buttonStyle:{
         flex:1,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    textDisplay:{
+        color: 'white'
+
     }
 
   });

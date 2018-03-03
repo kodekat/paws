@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import LandingScreen from './app/screens/LandingScreen';
+//import Feed from './app/screens/Feed';
 
 export default class App extends React.Component {
   render() {
