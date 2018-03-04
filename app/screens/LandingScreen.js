@@ -10,6 +10,9 @@ import Feed from './Feed';
 import Logo from '../../assets/pawsLogo.png'
 
 export default class App extends React.Component {
+    static navigationOptions = {
+        header: null,
+    };
     constructor(props){
         super(props);
         this.state = {
@@ -51,12 +54,16 @@ export default class App extends React.Component {
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity 
                         style= {styles.buttonStyle}
-                        onPress= {()=> this.setState({currentScreen: 'login'})}>
+                        //onPress= {()=> this.setState({currentScreen: 'login'})}
+                        onPress={() => this.props.navigation.navigate('Login')}
+                        >
                         <Text style={styles.textDisplay}> Login </Text>
                         </TouchableOpacity>
                         <TouchableOpacity 
                         style= {styles.buttonStyle}
-                        onPress= {()=> this.setState({currentScreen: 'register'})}>
+                        //onPress= {()=> this.setState({currentScreen: 'register'})}
+                        onPress={() => this.props.navigation.navigate('Register')}
+                        >
                         <Text style={styles.textDisplay}> Sign Up </Text>
                         </TouchableOpacity>
                     </View>    
@@ -91,7 +98,8 @@ export default class App extends React.Component {
         justifyContent: 'center'
     },
     textDisplay:{
-        color: 'white'
+        color: 'white',
+        //fontSize:30
 
     }
 

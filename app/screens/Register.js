@@ -7,6 +7,13 @@ import { SimpleLineIcons, Ionicons } from '@expo/vector-icons';
 import Feed from './Feed';
 
 export default class Register extends React.Component {
+  static navigationOptions = {
+    title: 'Sign Up Below',
+    headerStyle: {backgroundColor: '#1D2786', borderBottomWidth: 0},
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white', fontSize: 15 },
+    borderColor: '#1D2786', 
+  };
   constructor(props) {
     super(props);
 
@@ -86,7 +93,7 @@ return (
         <TouchableOpacity 
             style={styles.buttonLogin}
             //onPress={this.handleLogInSubmit}
-             onPress= {()=> this.setState({screen: 'feed'})}
+             onPress= {()=> this.props.navigation.navigate('FeedTab')}
         >
         <Text style={{color: 'white'}}> {"sign up"} </Text>
         </TouchableOpacity>

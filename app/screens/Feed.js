@@ -22,6 +22,7 @@ export default class Feed extends Component {
             //set width and hieght for picture from online 
             width: 50,
             height: 50, 
+            borderRadius:25
           }}
         />
         <View style={styles.nameLocation}>
@@ -54,14 +55,15 @@ export default class Feed extends Component {
             style={{paddingRight: 8}}
             />
 
-            <Ionicons
+            {/* <Ionicons
             name="ios-paper-plane-outline"
             size={30}
             color='#085947'
-            />
+            /> */}
             </View>
             <Text> {item.post["caption"]}</Text>
             <Text> {item.post["date"]} </Text>
+            <Text>  </Text>
             </View>
 
        </View>
@@ -92,8 +94,11 @@ const styles = StyleSheet.create({
   item: {
     flexGrow: 1,
     flexDirection:'row',
+    
   },
   itemContainer:{
+    borderWidth: 1,
+    borderBottomColor: '#d9d9d9'
     //alignItems: 'center',
   },
   // name + location container
@@ -101,6 +106,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
+    backgroundColor: '#f2f2f2',
   },
   // line up text as column
   nameLocation: {
@@ -117,6 +123,9 @@ const styles = StyleSheet.create({
   buttonContainer:{
     flexDirection: 'row',
     marginLeft: 10,
+  },
+  image:{
+      //borderRadius: 25,
   }
 
 });

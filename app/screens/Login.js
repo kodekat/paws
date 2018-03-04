@@ -7,6 +7,14 @@ import { SimpleLineIcons, Ionicons } from '@expo/vector-icons';
 import Feed from './Feed';
 
 export default class Login extends React.Component {
+    static navigationOptions = {
+        title: 'Login',
+        headerStyle: {backgroundColor: '#1D2786', borderBottomWidth: 0},
+        headerTintColor: 'white',
+        headerTitleStyle: { color: 'white', fontSize: 15 },
+        borderColor: '#1D2786', 
+      };
+
     constructor(props) {
         super(props);
     
@@ -18,12 +26,13 @@ export default class Login extends React.Component {
         };
       }
       handleSubmit = () => {
-        const {text}  = this.state
+        const {email, password}  = this.state
         if (email !== '' && password !== '') {
-            Keyboard.dismiss();
+            //Keyboard.dismiss();
             //console.log("LogIn credentials ok")
-            return this.setState({isValidLogin: true})
+            //return this.setState({isValidLogin: true})
         }
+        
         // handleLogInSubmit= () => {
             
         //         return <Feed/>
@@ -73,7 +82,7 @@ export default class Login extends React.Component {
             <TouchableOpacity 
                 style={styles.buttonLogin}
                 //onPress={this.handleLogInSubmit}
-                 onPress= {()=> this.setState({screen: 'feed'})}
+                 onPress= {()=> this.props.navigation.navigate('FeedTab')}
             >
             <Text style={{color: 'white'}}> {"log in"} </Text>
             </TouchableOpacity>
